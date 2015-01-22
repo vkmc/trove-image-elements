@@ -4,14 +4,11 @@ set -e
 
 mount -o size=8G /tmp
 
-export TROVE_REMOTE_REPO="https://github.com/openstack/trove"
-export TROVE_REMOTE_REPO_BRANCH=master
 export DISTRO=rhel
 export DATASTORE=mysql
 
 export DIB_REPO_PATH="/opt/stack/diskimage-builder"
-export TRIPLEO_REPO_PATH="/opt/stack/tripleo-image-elements"
-export ELEMENTS_PATH="$DIB_REPO_PATH/elements:$TRIPLEO_REPO_PATH/elements:./elements"
+export ELEMENTS_PATH="$DIB_REPO_PATH/:./elements"
 
 export REG_METHOD=portal
 export REG_USER=<user>

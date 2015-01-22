@@ -5,6 +5,8 @@ set -o xtrace
 
 # NOTE(vkmc) This is necessary for now. Waiting for the release.
 
+yum -y install wget
+
 wget http://rhos-release.virt.bos.redhat.com/repos/rhos-release/rhos-release-latest.noarch.rpm
 yum -y --nogpgcheck localinstall rhos-release-latest.noarch.rpm
 rhos-release 6
