@@ -19,6 +19,8 @@ export REG_PASSWORD=<password>
 export REG_MACHINE_NAME=trove
 export REG_POOL_ID=<pool>
 
+# NOTE(vkmc): This param is important, DIB's repos are outdated and will return a 404
+# A guest image can be downloaded from http://jur-linux.org/download/ftp.redhat.com/rhel7-rc/GuestImage/
 export DIB_LOCAL_IMAGE=<localimg>
 export DIB_CLOUD_INIT_DATASOURCES="ConfigDrive"
 
