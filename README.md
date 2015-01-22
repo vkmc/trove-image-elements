@@ -25,9 +25,19 @@ need.
 Building images
 ---------------
 
+Without the script
+------------------
+
 To build an image please run this commands:
 
+    # RHEL related required env
+    export REG_METHOD=portal
+    export REG_USER=<user>
+    export REG_PASSWORD=<password>
+    export REG_MACHINE_NAME=trove
+    export REG_POOL_ID=<pool>
 
+    # DIB related required env
     export TROVE_REMOTE_REPO="https://github.com/openstack/trove"
     export TROVE_REMOTE_REPO_BRANCH=master
     export DISTRO=rhel
@@ -40,4 +50,13 @@ To build an image please run this commands:
 
     Note. Only anonymous HTTP(S) accessable Git repos are allowed.
 
-** Based on Denis Makogon's trove-guest-image-elements work **
+With the script
+---------------
+
+Edit the required params and run 'sudo ./create-trove-image.sh'
+
+
+Based on
+--------
+
+https://github.com/denismakogon/trove-guest-image-elements
