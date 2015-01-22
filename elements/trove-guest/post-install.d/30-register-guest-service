@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -e
+set -o xtrace
+
+# Copy configuration files
+dd if=/tmp/in_target.d/trove-dist.conf of=/usr/share/trove/trove-dist.conf
+dd if=/tmp/in_target.d/trove-guestagent.conf of=/etc/trove/trove-guestagent.conf
+
+# Copy service file
+dd if=/tmp/in_target.d/openstack-trove-guestagent.service of=/usr/lib/systemd/system/openstack-trove-guestagent.service
+
+# Configuring permissions
+
+chown trove:trove /etc/trove
+chown trove:trove /usr/share/trove
+chown trove:trove /var/log/trove
+
+# Enable and start service
+systemctl enable openstack-trove-guestagent.service
+systemctl start openstack-trove-guestagent.service

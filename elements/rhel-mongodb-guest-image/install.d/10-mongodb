@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# CONTEXT: GUEST during CONSTRUCTION as ROOT
+# PURPOSE: Install controller base required packages
+
+set -e
+set -o xtrace
+
+# Copy mongodb.repo file
+dd if=/tmp/in_target.d/mongodb.repo of=/etc/yum.repos.d/mongodb.repo
+
+yum install -y mongodb-org

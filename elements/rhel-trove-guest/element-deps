@@ -1,0 +1,7 @@
+base
+vm
+rhel7
+selinux-permissive
+rhel-system-configuration
+rhel-python
+trove-guest
