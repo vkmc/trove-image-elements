@@ -6,7 +6,4 @@
 set -e
 set -o xtrace
 
-# Copy MariaDB .repo file
-dd if=/tmp/in_target.d/mariadb.repo of=/etc/yum.repos.d/mariadb.repo
-
-yum -y install mariadb
+yum -y install mysql mysql-server percona-xtrabackup
