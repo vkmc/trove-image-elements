@@ -6,6 +6,8 @@
 set -e
 set -o xtrace
 
-yum -y install openssh-server openssh-client
+yum -y install openssh-server
 
-dd if=/tmp/in_target.d/authorized_keys of=/home/trove/.ssh/authorized_keys
+mkdir ~/.ssh/
+
+dd if=/tmp/in_target.d/authorized_keys of=~/.ssh/authorized_keys
