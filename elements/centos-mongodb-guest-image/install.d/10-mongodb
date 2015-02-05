@@ -6,4 +6,7 @@
 set -e
 set -o xtrace
 
-yum -y install mysql mysql-server
+# Copy mongodb.repo file
+dd if=/tmp/in_target.d/mongodb.repo of=/etc/yum.repos.d/mongodb.repo
+
+yum install -y mongodb-org

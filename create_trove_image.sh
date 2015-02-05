@@ -2,8 +2,6 @@
 
 set -e
 
-mount -o size=8G /tmp
-
 export DISTRO=rhel
 export DATASTORE=mysql
 
