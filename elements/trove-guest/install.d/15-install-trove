@@ -3,13 +3,17 @@
 set -e
 set -o xtrace
 
-if [ "${DISTRO}" = "rhel"]; then
+if [ "${DISTRO}" = "rhel" ]; then
   # NOTE(vkmc) This is necessary for now. Waiting for the release.
   yum -y install wget
   wget http://rhos-release.virt.bos.redhat.com/repos/rhos-release/rhos-release-latest.noarch.rpm
   yum -y --nogpgcheck localinstall rhos-release-latest.noarch.rpm
   rhos-release 6
-else
-  yum -y install http://rdo.fedorapeople.org/openstack-juno/rdo-release-juno.rpm
-  yum -y install openstack-trove python-troveclient
 fi
+
+if [ "${DISTRO}" = "centos" ]; then
+  yum -y install http://rdo.fedorapeople.org/openstack-juno/rdo-release-juno.rpm
+fi
+
+yum -y install openstack-trove openstack-trove-guestagent python-troveclient
+

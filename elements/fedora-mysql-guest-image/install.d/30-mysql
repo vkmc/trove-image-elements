@@ -7,3 +7,7 @@ set -e
 set -o xtrace
 
 yum -y install mysql mysql-server
+
+# Enable and start the MySQL server
+systemctl enable mariadb.service
+systemctl start mariadb.service

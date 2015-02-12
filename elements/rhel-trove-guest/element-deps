@@ -1,4 +1,7 @@
-rhel7
+base
+vm
+cloud-init-datasources
 selinux-permissive
+rhel7
 system-configuration
 trove-guest

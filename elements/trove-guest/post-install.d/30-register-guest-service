@@ -11,7 +11,6 @@ dd if=/tmp/in_target.d/trove-guestagent.conf of=/etc/trove/trove-guestagent.conf
 dd if=/tmp/in_target.d/openstack-trove-guestagent.service of=/usr/lib/systemd/system/openstack-trove-guestagent.service
 
 # Configuring permissions
-
 chown trove:trove /etc/trove
 chown trove:trove /usr/share/trove
 chown trove:trove /var/log/trove

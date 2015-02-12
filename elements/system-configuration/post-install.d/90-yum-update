@@ -3,4 +3,4 @@
 set -e
 set -o xtrace
 
-sudo yum update
+sudo yum -y update

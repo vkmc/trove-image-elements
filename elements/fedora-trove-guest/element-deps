@@ -1,4 +1,7 @@
-fedora
+base
+vm
+cloud-init-datasources
 selinux-permissive
+fedora
 system-configuration
 trove-guest
