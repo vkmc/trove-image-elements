@@ -89,7 +89,7 @@ install_requirements() {
 
 valid_distro_control() {
     if [ "${DISTRO}" != "fedora" ] && [ "${DISTRO}" != "centos" ] && [ "${DISTRO}" != "rhel" ]; then
-	err "Distro ${DISTRO} not supported. Valid options are: fedora, centos or rhel."
+	err "Distro ${DISTRO} not supported. Valid options are fedora, centos or rhel."
         exit 1
     fi
 }
@@ -101,9 +101,9 @@ required_params_control() {
 
 rhel_subscription_control() {
     if [ "${DISTRO}" = "rhel" ]; then
-        : ${REG_USER:?"You need to set RHEL Subscription User."}
-        : ${REG_PASSWORD:?"You need to set RHEL Subscription Password."}
-        : ${REG_POOL_ID:?"You need to set RHEL Pool ID."}
+        : ${REG_USER:?"You need to set RHEL subscription user."}
+        : ${REG_PASSWORD:?"You need to set RHEL subscription password."}
+        : ${REG_POOL_ID:?"You need to set RHEL pool ID."}
     fi
 }
 
