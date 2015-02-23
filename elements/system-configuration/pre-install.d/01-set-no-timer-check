@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e
+
+sed -i 's/ttyS0\,115200/ttyS0\,115200\ no_timer_check/' /etc/default/grub
