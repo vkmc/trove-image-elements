@@ -8,27 +8,14 @@ Each image for datastore should include next mandatory elements:
 
     ${DISTRO}-${DATASTORE}-guest-image (for example rhel-mysql-guest-image, rhel-mongodb-guest-image, etc.)
 
-
-Instructions
-------------
-
-Checkout this source tree and also the diskimage builder, export an
-ELEMENTS\PATH to add elements from this tree, and build any disk images you
-need.
-
-    pip install dib-utils pyyaml
-    pip install git+https://github.com/openstack/diskimage-builder.git
-    git clone https://github.com/openstack/tripleo-image-elements.git
-    git clone https://github.com/vkmc/trove-image-elements.git
-    export ELEMENTS_PATH=tripleo-image-elements/elements:trove-guest-image-elements/elements:diskimage-builder/elements
-
 Building images
 ---------------
 
 Without the script
 ------------------
 
-To build an image please run this commands:
+To build an image without the script, make sure you have diskimage-builder installed (yum install -y diskimage-builder)
+and run the following commands:
 
     # RHEL related required env
     export REG_METHOD=portal
@@ -38,10 +25,8 @@ To build an image please run this commands:
     export REG_POOL_ID=<pool>
 
     # DIB related required env
-    export TROVE_REMOTE_REPO="https://github.com/openstack/trove"
-    export TROVE_REMOTE_REPO_BRANCH=master
-    export DISTRO=rhel
-    export DATASTORE=...
+    export DISTRO=<distro>
+    export DATASTORE=<datastore>
     export DIB_CLOUD_INIT_DATASOURCES="ConfigDrive"
     disk-image-create -a amd64 \
         -o ${DISTRO}-${DATASTORE}-guest-image \
@@ -53,7 +38,7 @@ To build an image please run this commands:
 With the script
 ---------------
 
-Edit the required params and run 'sudo ./create-trove-image.sh'
+Simply run 'sudo ./create-trove-image.sh -h' to see run instructions.
 
 
 Based on
