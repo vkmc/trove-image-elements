@@ -83,6 +83,10 @@ init_variables() {
     export DIB_CLOUD_INIT_DATASOURCES="ConfigDrive"
 }
 
+install_requirements() {
+    sudo yum install -y diskimage-builder
+}
+
 valid_distro_control() {
     if [ "${DISTRO}" != "fedora" ] && [ "${DISTRO}" != "centos" ] && [ "${DISTRO}" != "rhel" ]; then
 	err "Distro ${DISTRO} not supported. Valid options are: fedora, centos or rhel."
@@ -108,6 +112,7 @@ main() {
     parse_arguments "$@"
     required_params_control
     rhel_subscription_control
+    install_requirements
     init_variables
     disk-image-create -a amd64 -o ${DISTRO}-${DATASTORE}-guest-image -x --qemu-img-options compat=0.10  ${DISTRO}-${DATASTORE}-guest-image
     exit 0
