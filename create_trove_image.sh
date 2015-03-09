@@ -80,7 +80,7 @@ init_variables() {
     export REG_METHOD=portal
     export REG_MACHINE_NAME=trove
 
-    export DIB_CLOUD_INIT_DATASOURCES="ConfigDrive"
+    export DIB_CLOUD_INIT_DATASOURCES="ConfigDrive,EC2"
 }
 
 install_requirements() {
