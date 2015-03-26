@@ -15,5 +15,5 @@ if [ "${DISTRO}" = "centos" ]; then
   yum -y install http://rdo.fedorapeople.org/openstack-juno/rdo-release-juno.rpm
 fi
 
-yum -y install openstack-trove openstack-trove-guestagent python-troveclient python-netifaces
+yum -y install openstack-trove-guestagent python-troveclient python-netifaces
 
