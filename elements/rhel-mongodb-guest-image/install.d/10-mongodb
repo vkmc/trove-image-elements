@@ -6,7 +6,4 @@
 set -e
 set -o xtrace
 
-# Copy mongodb.repo file
-dd if=/tmp/in_target.d/mongodb.repo of=/etc/yum.repos.d/mongodb.repo
-
-yum install -y mongodb-org
+yum install -y mongodb mongodb-server
