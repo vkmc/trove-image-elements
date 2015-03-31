@@ -9,7 +9,7 @@ err() {
 print_usage() {
     echo "Usage: ${0##*/} [-s datastore] [-v datastore_version] [-p packages] [-i image id]"
     echo "Options:"
-    echo " -s | --datastore: name of the datastore. Possible options are mysql or mongodb."
+    echo " -s | --datastore: name of the datastore. Possible options are mysql, mongodb, or postgresql."
     echo " -v | --datastore-version: name of the datastore version."
     echo " -p | --packages: packages required by the datastore version that are installed on the guest image."
     echo " -i | --image-id: ID of the image used to create an instance of the datastore version."
@@ -62,8 +62,8 @@ parse_arguments() {
 }
 
 valid_datastore_control() {
-    if [ "${DATASTORE}" != "mysql" ] && [ "${DATASTORE}" != "mongodb" ]; then
-	err "Datastore ${DATASTORE} not supported. Valid options are mysql or mongodb."
+    if [ "${DATASTORE}" != "mysql" ] && [ "${DATASTORE}" != "mongodb" ] && [ "${DATASTORE}" != "postgresql" ]; then
+	err "Datastore ${DATASTORE} not supported. Valid options are mysql, mongodb, or postgresql."
         exit 1
     fi
 }

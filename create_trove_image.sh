@@ -10,7 +10,7 @@ print_usage() {
     echo "Usage: ${0##*/} [-d distro] [-s datastore] [-i | -u | -p | -o | -h]"
     echo "Options:"
     echo " -d | --distro: name of the system to use. Possible options are fedora, centos or rhel."
-    echo " -s | --datastore: name of the storage backend to use. Possible options are mysql or mongodb."
+    echo " -s | --datastore: name of the storage backend to use. Possible options are mysql, mongodb, or postgresql."
     echo " -i | --local-image: path to the local image. Defaults to diskimage-builder location."
     echo " -u | --rh-user: subscription user for rhel."
     echo " -p | --rh-password: subcription password for rhel."
@@ -96,7 +96,7 @@ valid_distro_control() {
 
 required_params_control() {
     : ${DISTRO:?"Name of the system to use is required. Possible options are fedora, centos or rhel."}
-    : ${DATASTORE:?"Name of the datastore to use required. Possible options are mysql or mongodb."}
+    : ${DATASTORE:?"Name of the datastore to use required. Possible options are mysql, mongodb, or postgresql."}
 }
 
 rhel_subscription_control() {
