@@ -15,7 +15,7 @@ print_usage() {
     echo " -i | --image-id: ID of the image used to create an instance of the datastore version."
     echo " -h | --help: print this usage message and exit."
     echo ""
-    echo "Usage example: load_trove_image -s mysql -s fedora-mysql5.5 -p mysql-server=5.5 -i cf82462a-956c-4609-8413-a1eba1ba9dbd"
+    echo "Usage example: load_trove_image -s mysql -v fedora-mysql5.5 -p mysql-server=5.5 -i cf82462a-956c-4609-8413-a1eba1ba9dbd"
 }
 
 check_root() {
