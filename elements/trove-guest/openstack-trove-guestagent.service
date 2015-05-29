@@ -5,7 +5,7 @@ After=syslog.target network.target cloud-init.service
 [Service]
 Type=simple
 User=trove
-ExecStart=/usr/bin/trove-guestagent --config-file /etc/trove-guestagent.conf --config-file /etc/guest_info
+ExecStart=/usr/bin/trove-guestagent --config-file /etc/trove/conf.d/trove-guestagent.conf --config-file /etc/trove/conf.d/guest_info.conf
 
 [Install]
 WantedBy=multi-user.target
