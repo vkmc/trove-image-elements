@@ -6,4 +6,13 @@
 set -e
 set -o xtrace
 
-yum install -y mongodb mongodb-server
+# yum install -y mongodb mongodb-server
+
+dd if=/tmp/in_target.d/mongodb26.repo of=/etc/yum.repos.d/mongodb26.repo
+
+yum install -y mongodb-org mongodb-org-server
+
+# the following config changes are needed: smallfiles set to true, and bind_ip
+# set to default
+sed -e '/smallfiles =/ s/false/true/I' -i /etc/mongod.conf
+sed -e '/bind_ip/ s/^#*/#/' -i /etc/mongod.conf

@@ -6,6 +6,13 @@
 set -e
 set -o xtrace
 
+# install mariadb 5.5 (through mariadb-galera-server)
 yum -y install mysql mysql-server
 mkdir /etc/mysql
 ln -s /etc/my.cnf /etc/mysql/my.cnf
+
+# install mariadb 10
+# dd if=/tmp/in_target.d/mariadb10.repo of=/etc/yum.repos.d/mariadb10.repo
+
+# yum -y update
+# yum -y install MariaDB-server MariaDB-client
