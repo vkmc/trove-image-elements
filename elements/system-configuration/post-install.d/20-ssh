@@ -7,3 +7,8 @@ set -e
 set -o xtrace
 
 yum -y install openssh-server
+
+echo "Installing the SSH test key to the environment."
+mkdir -p /root/.ssh
+install -b --mode 0400 /tmp/in_target.d/id_rsa /root/.ssh/
+cat /tmp/in_target.d/id_rsa.pub >> /root/.ssh/authorized_keys
