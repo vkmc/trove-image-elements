@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+set -o xtrace
+
+# Though /var/lib/pgsql is the preferred directory, need to move it as
+# this is where the volume will be mounted
+su - postgres -c "/usr/bin/initdb /var/lib/pgsql/data"
+
+sed -i 's/PGDATA=\/var\/lib\/pgsql\/data/PGDATA=\/var\/lib\/postgresql\/data/' /lib/systemd/system/postgresql.service
+
+# initialize the database
+# aka /usr/bin/initdb
+# postgresql-setup initdb

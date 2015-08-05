@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -e
+set -o xtrace
+
+# Enable and start service
+# systemctl enable mariadb.service
+# systemctl start mariadb.service
+systemctl enable mysql.service
+systemctl start mysql.service

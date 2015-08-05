@@ -7,7 +7,8 @@ set -o xtrace
 dd if=/tmp/in_target.d/openstack-trove-guestagent.service of=/usr/lib/systemd/system/openstack-trove-guestagent.service
 
 # Configuring permissions
-chown trove:trove /etc/trove
+mkdir -p /etc/trove/conf.d
+chown -R trove:trove /etc/trove
 chown trove:trove /usr/share/trove
 chown trove:trove /var/log/trove
 
