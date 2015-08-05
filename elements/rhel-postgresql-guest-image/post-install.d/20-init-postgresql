@@ -3,6 +3,4 @@
 set -e
 set -o xtrace
 
-# initialize the database
-# aka /usr/bin/initdb
-postgresql-setup initdb
+su - postgres -c "/usr/bin/initdb /var/lib/pgsql/data"
