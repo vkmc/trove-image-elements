@@ -15,6 +15,8 @@ if [ "${DISTRO}" = "centos" ]; then
   yum -y install https://rdo.fedorapeople.org/rdo-release.rpm wget
   yum -y update
   sed -i -e 's/^Defaults.*requiretty/# Defaults requiretty/g' /etc/sudoers
+  sed -i -e 's/^enabled=0/enabled=1/g' /etc/yum.repos.d/rdo-testing.repo
+  sed -i -e 's/^enabled=1/enabled=0/g' /etc/yum.repos.d/rdo-release.repo
 fi
 
 yum -y install openstack-trove-guestagent python-troveclient python-netifaces pexpect
