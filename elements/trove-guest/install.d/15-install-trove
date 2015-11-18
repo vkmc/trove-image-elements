@@ -8,15 +8,13 @@ if [ "${DISTRO}" = "rhel" ]; then
   yum -y install wget
   wget http://rhos-release.virt.bos.redhat.com/repos/rhos-release/rhos-release-latest.noarch.rpm
   yum -y --nogpgcheck localinstall rhos-release-latest.noarch.rpm
-  rhos-release 6
+  rhos-release 7
 fi
 
 if [ "${DISTRO}" = "centos" ]; then
   yum -y install https://rdo.fedorapeople.org/rdo-release.rpm wget
-  sed -i 's/http:\/\/repos.fedorapeople.org\/repos\/openstack\/openstack-kilo\/epel-Derived\ from\ Red\ Hat\ Enterprise\ Linux\ 7.1\ (Source)\//http:\/\/repos.fedorapeople.org\/repos\/openstack\/openstack-kilo\/epel-7\//g' /etc/yum.repos.d/rdo-release.repo
   yum -y update
   sed -i -e 's/^Defaults.*requiretty/# Defaults requiretty/g' /etc/sudoers
-  wget -P /etc/yum.repos.d/ https://copr.fedoraproject.org/coprs/vkmc/trove-kilo/repo/epel-7/vkmc-trove-kilo-epel-7.repo
 fi
 
 yum -y install openstack-trove-guestagent python-troveclient python-netifaces pexpect
